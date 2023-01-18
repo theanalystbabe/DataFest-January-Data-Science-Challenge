@@ -1,0 +1,35 @@
+How many orders were shipped by Speedy Express in total?
+SELECT Count(o.orderID), s.ShipperName
+FROM [Orders] o
+INNER JOIN Shippers s
+ON o.shipperID = s.shipperID
+WHERE ShipperName = 'Speedy Express'
+
+ANS = 54 Orders
+
+What is the last name of the employee with the most orders?
+SELECT Count(O.EmployeeID) TOTAL_ORDERS, E.LastName
+FROM [Orders] O
+INNER JOIN Employees E
+ON O.EmployeeID = E.EmployeeID
+GROUP BY 2
+ORDER BY 1 DESC
+LIMIT 1
+
+ANS = Peacock 40 Orders
+
+What product was ordered the most by customers in Germany?
+SELECT SUM(od.quantity) TotalOrderedQty, p.productName
+FROM [Customers] c
+LEFT JOIN Orders o
+ON c.customerID = o.customerID
+LEFT JOIN OrderDetails od
+ON od.orderID = o.orderiD
+LEFT JOIN Products p
+ON od.productID = p.productID
+WHERE c.country = 'Germany'
+GROUP BY 2
+ORDER BY 1 DESC
+LIMIT 1
+
+ANS = Boston Crab Meat 160 Orders
