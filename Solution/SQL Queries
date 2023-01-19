@@ -1,3 +1,17 @@
+Question 1
+Think about what could be going wrong with our calculation. Think about a better way to evaluate this data.
+The method used evaluates the sum of order_amount divided by the count of orders_amount(counting the rows), A better way to evaluate this is by using this syntax:
+"Select SUM(order_amount)/SUM(total_items)
+FROM "2019_Winter_Data_Science_Intern_Challenge_Data_Set" wdsicds". Which divides Sum(order_amount) by the SUM(total_items) i.e(Qty ordered) and not Count of Orders.
+
+What metric would you report for this dataset?
+"Select SUM(order_amount)/SUM(total_items)
+FROM "2019_Winter_Data_Science_Intern_Challenge_Data_Set" wdsicds"
+
+What is its value?
+$357 AOV
+
+Question 2
 How many orders were shipped by Speedy Express in total?
 SELECT Count(o.orderID), s.ShipperName
 FROM [Orders] o
